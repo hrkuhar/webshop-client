@@ -17,9 +17,7 @@
             v-bind:key="category.name"
             v-on:mouseover="menuCategoryMouseover($event)"
           >
-            <p class="category-name-container">
-              {{ category.name.toUpperCase() }}
-            </p>
+            <p class="category-name-container">{{ category.name.toUpperCase() }}</p>
           </li>
         </ul>
 
@@ -32,19 +30,11 @@
         </div>-->
       </div>
       <div id="navbar-items-right">
-        <img
-          id="shopping-bag-icon"
-          alt="shopping bag icon"
-          src="../assets/shopping-bag.svg"
-        />
+        <img id="shopping-bag-icon" alt="shopping bag icon" src="../assets/shopping-bag.svg" />
       </div>
     </div>
 
-    <div
-      id="navbar-dropdown"
-      v-if="showNavbarDropdown"
-      v-on:mouseleave="menuCategoryMouseleave"
-    >
+    <div id="navbar-dropdown" v-if="showNavbarDropdown" v-on:mouseleave="menuCategoryMouseleave">
       <div
         class="menu-subcategory"
         v-for="subcategory in dropdownSubcategories"
@@ -183,6 +173,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  background-color: white;
 }
 
 .menu-categories {
