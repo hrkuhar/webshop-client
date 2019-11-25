@@ -54,7 +54,6 @@ export default {
     menuCategoryMouseover(event) {
 
         console.log(event.target);
-
         var categoryNameContainer = event.target;
         while(categoryNameContainer.className != "category-name-container"){
             categoryNameContainer = categoryNameContainer.children[0];
@@ -64,6 +63,10 @@ export default {
       this.dropdownSubcategories = this.$store.getters.categories.filter(c => c.name.toLowerCase() == categoryNameContainer.innerHTML.toLowerCase())[0].subCategories;
     },
     menuCategoryMouseleave() {
+
+      if(document.getElementById("navbar-dropdown").matches(":hover")){
+        return;
+      }
       this.showNavbarDropdown = false;
       this.dropdownSubcategories = [];
     }
@@ -129,6 +132,7 @@ export default {
   font-size: 0.8em;
   margin: 0 !important;
   display: none;
+    height: 100%;
 }
 
 .menu-subcategory {
