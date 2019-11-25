@@ -31,7 +31,14 @@
           <router-link to="/">Go to Home</router-link>
         </div> -->
       </div>
-      <div id="navbar-items-right"></div>
+      <div id="navbar-items-right">
+  <img
+          id="shopping-bag-icon"
+          alt="shopping bag icon"
+          src="../assets/shopping-bag.svg"
+        />
+
+      </div>
     </div>
 
     <div id="navbar-dropdown" 
@@ -43,7 +50,7 @@
         v-for="subcategory in dropdownSubcategories"
         v-bind:key="subcategory.name"
       >
-        <p>{{subcategory.name.toUpperCase()}}</p>
+        <p>{{subcategory.name}}</p>
       </div>
     </div>
   </div>
@@ -116,6 +123,11 @@ export default {
   padding-left: 5px;
 }
 
+#shopping-bag-icon{
+  height: 90%;
+  padding-right: 5px;
+}
+
 #navbar-items-left {
   height: 100%;
   margin-left: 5px;
@@ -127,7 +139,6 @@ export default {
 
 #navbar-items-right {
   height: 100%;
-  background-color: rebeccapurple;
   margin-right: 5px;
   display: flex;
   flex-direction: row;
@@ -153,24 +164,25 @@ export default {
   padding-right: 15px;
   font-size: 0.8em;
   margin: 0 !important;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .menu-category:hover {
   cursor: pointer;
+  background-color: rgb(237, 237, 237)
 }
 
 #navbar-dropdown {
   position: fixed;
   top: 50px;
-  left: 0;
-  min-width: 60%;
-  background-color: lightgray;
+  left: 260px;
+  width: calc(100% - 260px);
   z-index: 101;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 255px;
 }
 
 .menu-categories {
