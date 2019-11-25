@@ -10,29 +10,41 @@
         />
         <img id="main-logo" alt="main logo" src="../assets/main-logo.svg" />
 
-        <div
-          class="menu-category"
-          v-for="category in categories"
-          v-bind:key="category.name"
-          v-on:mouseover="menuCategoryMouseover($event)"
-          v-on:mouseleave="menuCategoryMouseleave"
+        <ul class="menu-categories"
+        v-on:mouseleave="menuCategoryMouseleave"
         >
-          <p class="category-name-container">{{ category.name.toUpperCase() }}</p>
+          <li
+            class="menu-category"
+            v-for="category in categories"
+            v-bind:key="category.name"
+            v-on:mouseover="menuCategoryMouseover($event)"
+          >
+            <p class="category-name-container">{{ category.name.toUpperCase() }}</p>
+          </li>
+        </ul>
+
+        <!-- <div class="menu-category">
+          <router-link to="/items">Go to Items</router-link>
         </div>
+
+        <div class="menu-category">
+          <router-link to="/">Go to Home</router-link>
+        </div> -->
       </div>
       <div id="navbar-items-right"></div>
     </div>
 
-    <div id="navbar-dropdown" v-if="showNavbarDropdown">
-        
-        <div
+    <div id="navbar-dropdown" 
+    v-if="showNavbarDropdown"
+    v-on:mouseleave="menuCategoryMouseleave"    
+    >
+      <div
         class="menu-subcategory"
-          v-for="subcategory in dropdownSubcategories"
-          v-bind:key="subcategory.name"
-        >
-          <p>{{subcategory.name.toUpperCase()}}</p>
-        </div>
-
+        v-for="subcategory in dropdownSubcategories"
+        v-bind:key="subcategory.name"
+      >
+        <p>{{subcategory.name.toUpperCase()}}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -44,7 +56,7 @@ export default {
     return {
       showNavbarDropdown: false,
       navbarDropdownCategory: "",
-      dropdownSubcategories : []
+      dropdownSubcategories: []
     };
   },
   methods: {
@@ -52,19 +64,20 @@ export default {
       this.$store.commit("showMobileMenu");
     },
     menuCategoryMouseover(event) {
-
-        console.log(event.target);
-        var categoryNameContainer = event.target;
-        while(categoryNameContainer.className != "category-name-container"){
-            categoryNameContainer = categoryNameContainer.children[0];
-        }
-        console.log(categoryNameContainer.innerHTML);
+      console.log(event.target);
+      var categoryNameContainer = event.target;
+      while (categoryNameContainer.className != "category-name-container") {
+        categoryNameContainer = categoryNameContainer.children[0];
+      }
+      console.log(categoryNameContainer.innerHTML);
       this.showNavbarDropdown = true;
-      this.dropdownSubcategories = this.$store.getters.categories.filter(c => c.name.toLowerCase() == categoryNameContainer.innerHTML.toLowerCase())[0].subCategories;
+      this.dropdownSubcategories = this.$store.getters.categories.filter(
+        c =>
+          c.name.toLowerCase() == categoryNameContainer.innerHTML.toLowerCase()
+      )[0].subCategories;
     },
     menuCategoryMouseleave() {
-
-      if(document.getElementById("navbar-dropdown").matches(":hover")){
+      if (document.getElementById("navbar-dropdown").matches(":hover")) {
         return;
       }
       this.showNavbarDropdown = false;
@@ -74,7 +87,7 @@ export default {
   computed: {
     categories: function() {
       return this.$store.getters.categories;
-    },
+    }
   }
 };
 </script>
@@ -132,7 +145,7 @@ export default {
   font-size: 0.8em;
   margin: 0 !important;
   display: none;
-    height: 100%;
+  height: 100%;
 }
 
 .menu-subcategory {
@@ -143,7 +156,6 @@ export default {
 }
 
 .menu-category:hover {
-  background-color: lightgray;
   cursor: pointer;
 }
 
@@ -161,6 +173,18 @@ export default {
   padding-left: 255px;
 }
 
+.menu-categories {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+}
+
 @media (min-width: 40rem) {
   #navbar {
     height: 50px;
@@ -175,8 +199,13 @@ export default {
     padding-left: 20px;
   }
 
+  .menu-categories{
+    height: 100%;
+  }
+
   .menu-category {
-  display: block;
-}
+    display: block;
+    padding-top: 5px;
+  }
 }
 </style>
