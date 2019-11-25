@@ -97,6 +97,7 @@ export default {
 #main-logo {
   height: 20%;
   padding-right: 60px;
+  padding-left: 5px;
 }
 
 #navbar-items-left {
