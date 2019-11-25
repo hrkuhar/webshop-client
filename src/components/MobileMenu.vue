@@ -16,7 +16,10 @@
         v-for="category in categories"
         v-bind:key="category.name"
       >
-        <div class="category-container" v-on:click ="toggleSubCategories($event)"> 
+        <div
+          class="category-container"
+          v-on:click="toggleSubCategories($event)"
+        >
           <p>{{ category.name.toUpperCase() }}</p>
           <img alt="down arrow" src="../assets/arrow-down.svg" />
         </div>
@@ -40,16 +43,17 @@ export default {
       this.$store.commit("hideMobileMenu");
     },
     toggleSubCategories(event) {
-        console.log(event.target);
+      console.log(event.target);
 
-        var menuCategory = event.target;
-        while(menuCategory.className != "menu-category"){
-            menuCategory = menuCategory.parentElement;
-        }
+      var menuCategory = event.target;
+      while (menuCategory.className != "menu-category") {
+        menuCategory = menuCategory.parentElement;
+      }
       var children = menuCategory.children;
       for (var child of children) {
         if (child.className == "menu-subcategory") {
-          child.style.display = child.style.display == "block" ? "none" : "block";
+          child.style.display =
+            child.style.display == "block" ? "none" : "block";
         }
       }
     }
@@ -111,8 +115,8 @@ export default {
 }
 
 .menu-subcategory {
-    display: none;
-    padding-left: 40px;
+  display: none;
+  padding-left: 40px;
 }
 
 .menu-category {

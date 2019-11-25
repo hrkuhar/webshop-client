@@ -3,7 +3,7 @@
     <Navbar></Navbar>
     <MobileMenu v-if="mobileMenuShown"></MobileMenu>
     <div id="main-content">
-        <router-view />
+      <router-view />
     </div>
   </div>
 </template>
@@ -19,38 +19,39 @@ export default {
     MobileMenu
   },
   computed: {
-    mobileMenuShown: function () {
+    mobileMenuShown: function() {
       return this.$store.state.mobileMenuShown;
     }
   },
-  created: function () {
-    fetch('http://localhost:3000/items').then(response => {
-      return response.text();
-    }).then(items => {
-      var json = JSON.parse(items);
-      this.$store.commit('setItems', json);
-      console.log(this.$store.getters.categories);
-    });
+  created: function() {
+    fetch("http://localhost:3000/items")
+      .then(response => {
+        return response.text();
+      })
+      .then(items => {
+        var json = JSON.parse(items);
+        this.$store.commit("setItems", json);
+        console.log(this.$store.getters.categories);
+      });
   }
 };
 </script>
 
 <style>
-
 * {
   box-sizing: border-box !important;
 }
 
-html{
+html {
   height: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
+body {
   height: 100%;
 }
 
-#main-content{
+#main-content {
   position: fixed;
   top: 50px;
   left: 0;
@@ -63,5 +64,4 @@ body{
     top: 60px;
   }
 }
-
 </style>

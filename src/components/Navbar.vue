@@ -10,16 +10,16 @@
         />
         <img id="main-logo" alt="main logo" src="../assets/main-logo.svg" />
 
-        <ul class="menu-categories"
-        v-on:mouseleave="menuCategoryMouseleave"
-        >
+        <ul class="menu-categories" v-on:mouseleave="menuCategoryMouseleave">
           <li
             class="menu-category"
             v-for="category in categories"
             v-bind:key="category.name"
             v-on:mouseover="menuCategoryMouseover($event)"
           >
-            <p class="category-name-container">{{ category.name.toUpperCase() }}</p>
+            <p class="category-name-container">
+              {{ category.name.toUpperCase() }}
+            </p>
           </li>
         </ul>
 
@@ -29,28 +29,28 @@
 
         <div class="menu-category">
           <router-link to="/">Go to Home</router-link>
-        </div> -->
+        </div>-->
       </div>
       <div id="navbar-items-right">
-  <img
+        <img
           id="shopping-bag-icon"
           alt="shopping bag icon"
           src="../assets/shopping-bag.svg"
         />
-
       </div>
     </div>
 
-    <div id="navbar-dropdown" 
-    v-if="showNavbarDropdown"
-    v-on:mouseleave="menuCategoryMouseleave"    
+    <div
+      id="navbar-dropdown"
+      v-if="showNavbarDropdown"
+      v-on:mouseleave="menuCategoryMouseleave"
     >
       <div
         class="menu-subcategory"
         v-for="subcategory in dropdownSubcategories"
         v-bind:key="subcategory.name"
       >
-        <p>{{subcategory.name}}</p>
+        <p>{{ subcategory.name }}</p>
       </div>
     </div>
   </div>
@@ -123,7 +123,7 @@ export default {
   padding-left: 5px;
 }
 
-#shopping-bag-icon{
+#shopping-bag-icon {
   height: 90%;
   padding-right: 5px;
 }
@@ -170,7 +170,7 @@ export default {
 
 .menu-category:hover {
   cursor: pointer;
-  background-color: rgb(237, 237, 237)
+  background-color: rgb(237, 237, 237);
 }
 
 #navbar-dropdown {
@@ -211,7 +211,7 @@ export default {
     padding-left: 20px;
   }
 
-  .menu-categories{
+  .menu-categories {
     height: 100%;
   }
 
