@@ -16,6 +16,7 @@
             v-for="category in categories"
             v-bind:key="category.name"
             v-on:mouseover="menuCategoryMouseover($event)"
+            v-bind:class="[category.name.toLowerCase() == selectedCategory.toLowerCase() ? 'category-active' : '']"
           >
             <p class="category-name-container">{{ category.name.toUpperCase() }}</p>
           </li>
@@ -40,6 +41,7 @@
         v-for="subcategory in dropdownSubcategories"
         v-bind:key="subcategory.name"
         v-on:click="menuSubCategoryClicked($event)"
+
       >
         <p class="subcategory-name-container">{{ subcategory.name }}</p>
       </div>
@@ -82,6 +84,7 @@ export default {
       }
       this.showNavbarDropdown = false;
       this.dropdownSubcategories = [];
+      this.selectedCategory = "";
     },
     menuSubCategoryClicked(event) {
       var subcategoryNameContainer = event.target;
@@ -189,14 +192,14 @@ export default {
 #navbar-dropdown {
   position: fixed;
   top: 50px;
-  left: 260px;
-  width: calc(100% - 260px);
+  left: 259px;
+  width: calc(100% - 259px);
   z-index: 101;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background-color: whi;
+  background-color: white;
 }
 
 .menu-categories {
@@ -209,6 +212,10 @@ export default {
   align-items: center;
   align-content: center;
   justify-content: flex-start;
+}
+
+.category-active{
+  background-color: rgb(237, 237, 237);
 }
 
 @media (min-width: 40rem) {
