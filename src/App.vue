@@ -52,15 +52,14 @@ body {
 }
 
 #main-content {
-  position: fixed;
-  top: 50px;
+  margin-top: 50px;
   left: 0;
   width: 100%;
 }
 
 @media (min-width: 40rem) {
   #main-content{
-    top: 60px;
+    margin-top: 60px;
   }
 }
 </style>
