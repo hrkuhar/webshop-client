@@ -55,8 +55,7 @@ export default {
       showNavbarDropdown: false,
       navbarDropdownCategory: "",
       dropdownSubcategories: [],
-      selectedCategory: "",
-      selectedSubCategory: ""
+      selectedCategory: ""
     };
   },
   methods: {
@@ -91,7 +90,13 @@ export default {
       ) {
         subcategoryNameContainer = subcategoryNameContainer.children[0];
       }
-      console.log(subcategoryNameContainer.innerHTML);
+      this.$router.push({
+        name: "items",
+        params: {
+          category: this.selectedCategory.toLowerCase(),
+          subcategory: subcategoryNameContainer.innerHTML.toLowerCase()
+        }
+      }).catch(err => console.log(err.message));
     }
   },
   computed: {
