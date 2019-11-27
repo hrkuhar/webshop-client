@@ -2,7 +2,7 @@
   <div id="mobile-menu-overlay" v-on:click.self="hideMobileMenu">
     <div id="mobile-menu">
       <div id="mobile-menu-logo-container">
-        <img id="main-logo" alt="main logo" src="../assets/main-logo.svg" />
+        <img id="main-logo" alt="main logo" src="../assets/simple-shop-logo.png" />
         <img
           id="mobile-menu-close-button"
           alt="close button"
@@ -112,7 +112,7 @@ export default {
 }
 
 #main-logo {
-  height: 20%;
+  height: 250%;
 }
 
 #mobile-menu-close-button {
@@ -124,7 +124,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-left: 20px;
+  padding-left: 25px;
   padding-right: 20px;
   height: 50px;
 }

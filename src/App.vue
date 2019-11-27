@@ -59,7 +59,7 @@ body {
 }
 
 @media (min-width: 40rem) {
-  .navbar {
+  #main-content{
     top: 60px;
   }
 }

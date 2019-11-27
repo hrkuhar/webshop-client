@@ -8,7 +8,7 @@
           src="../assets/icon-menu-mobile.png"
           v-on:click="showMobileMenu"
         />
-        <img id="main-logo" alt="main logo" src="../assets/main-logo.svg" />
+        <img id="main-logo" alt="main logo" src="../assets/simple-shop-logo.png" />
 
         <ul class="menu-categories" v-on:mouseleave="menuCategoryMouseleave">
           <li
@@ -122,6 +122,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   z-index: 101;
+  background-color: white;
 }
 
 #menu-icon-mobile {
@@ -129,9 +130,8 @@ export default {
 }
 
 #main-logo {
-  height: 20%;
-  padding-right: 60px;
-  padding-left: 5px;
+  height: 250%;
+  padding-right: 40px;
 }
 
 #shopping-bag-icon {
@@ -192,9 +192,9 @@ export default {
 
 #navbar-dropdown {
   position: fixed;
-  top: 50px;
-  left: 259px;
-  width: calc(100% - 259px);
+  top: 60px;
+  left: 245px;
+  width: calc(100% - 245px);
   z-index: 101;
   display: flex;
   flex-direction: row;
@@ -221,7 +221,7 @@ export default {
 
 @media (min-width: 40rem) {
   #navbar {
-    height: 50px;
+    height: 60px;
   }
 
   #menu-icon-mobile {
@@ -229,8 +229,7 @@ export default {
   }
 
   #main-logo {
-    height: 35%;
-    padding-left: 20px;
+    height: 300%;
   }
 
   .menu-categories {
@@ -239,7 +238,7 @@ export default {
 
   .menu-category {
     display: block;
-    padding-top: 5px;
+    padding-top: 10px;
   }
 }
 </style>
