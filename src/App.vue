@@ -56,7 +56,6 @@ body {
   top: 50px;
   left: 0;
   width: 100%;
-  background-color: azure;
 }
 
 @media (min-width: 40rem) {

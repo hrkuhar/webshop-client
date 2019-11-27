@@ -159,6 +159,11 @@ export default {
 }
 
 .menu-category:hover {
+  cursor: default;
+  background-color: rgb(237, 237, 237);
+}
+
+.menu-subcategory:hover {
   cursor: pointer;
   background-color: rgb(237, 237, 237);
 }
@@ -173,7 +178,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background-color: white;
+  background-color: whi;
 }
 
 .menu-categories {
