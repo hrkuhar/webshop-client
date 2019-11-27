@@ -186,7 +186,7 @@ export default {
 
 .menu-subcategory:hover {
   cursor: pointer;
-  background-color: rgb(237, 237, 237);
+  border-bottom: 1px solid black;
 }
 
 #navbar-dropdown {
