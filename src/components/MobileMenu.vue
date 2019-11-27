@@ -11,15 +11,8 @@
         />
       </div>
 
-      <div
-        class="menu-category"
-        v-for="category in categories"
-        v-bind:key="category.name"
-      >
-        <div
-          class="category-container"
-          v-on:click="toggleSubCategories($event)"
-        >
+      <div class="menu-category" v-for="category in categories" v-bind:key="category.name">
+        <div class="category-container" v-on:click="toggleSubCategories($event)">
           <p>{{ category.name.toUpperCase() }}</p>
           <img alt="down arrow" src="../assets/arrow-down.svg" />
         </div>
@@ -27,6 +20,7 @@
           class="menu-subcategory"
           v-for="subCategory in category.subCategories"
           v-bind:key="subCategory.name"
+          v-on:click="menuSubCategoryClicked($event)"
         >
           <p>{{ subCategory.name }}</p>
         </div>
@@ -56,6 +50,27 @@ export default {
             child.style.display == "block" ? "none" : "block";
         }
       }
+    },
+    menuSubCategoryClicked(event) {
+      var element = event.target;
+      while (element.className != "menu-subcategory") {
+        element = element.parentElement;
+      }
+
+      var categoryLink = element.parentElement.children[0].children[0].innerHTML.toLowerCase();
+      var subcategoryLink = element.children[0].innerHTML.toLowerCase();
+
+      this.$router
+        .push({
+          name: "items",
+          params: {
+            category: categoryLink,
+            subcategory: subcategoryLink
+          }
+        })
+        .catch(err => console.log(err.message));
+
+      this.hideMobileMenu();
     }
   },
   computed: {

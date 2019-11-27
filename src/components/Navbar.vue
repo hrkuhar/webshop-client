@@ -175,8 +175,9 @@ export default {
   padding-right: 15px;
   font-size: 0.8em;
   margin: 0 !important;
-  padding-top: 5px;
+  padding-top: 6px;
   padding-bottom: 5px;
+  border-bottom: 2px solid white;
 }
 
 .menu-category:hover {
@@ -186,7 +187,7 @@ export default {
 
 .menu-subcategory:hover {
   cursor: pointer;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 }
 
 #navbar-dropdown {
