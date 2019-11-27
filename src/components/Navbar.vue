@@ -39,8 +39,9 @@
         class="menu-subcategory"
         v-for="subcategory in dropdownSubcategories"
         v-bind:key="subcategory.name"
+        v-on:click="menuSubCategoryClicked($event)"
       >
-        <p>{{ subcategory.name }}</p>
+        <p class="subcategory-name-container">{{ subcategory.name }}</p>
       </div>
     </div>
   </div>
@@ -53,7 +54,9 @@ export default {
     return {
       showNavbarDropdown: false,
       navbarDropdownCategory: "",
-      dropdownSubcategories: []
+      dropdownSubcategories: [],
+      selectedCategory: "",
+      selectedSubCategory: ""
     };
   },
   methods: {
@@ -72,6 +75,7 @@ export default {
         c =>
           c.name.toLowerCase() == categoryNameContainer.innerHTML.toLowerCase()
       )[0].subCategories;
+      this.selectedCategory = categoryNameContainer.innerHTML;
     },
     menuCategoryMouseleave() {
       if (document.getElementById("navbar-dropdown").matches(":hover")) {
@@ -79,6 +83,15 @@ export default {
       }
       this.showNavbarDropdown = false;
       this.dropdownSubcategories = [];
+    },
+    menuSubCategoryClicked(event) {
+      var subcategoryNameContainer = event.target;
+      while (
+        subcategoryNameContainer.className != "subcategory-name-container"
+      ) {
+        subcategoryNameContainer = subcategoryNameContainer.children[0];
+      }
+      console.log(subcategoryNameContainer.innerHTML);
     }
   },
   computed: {
