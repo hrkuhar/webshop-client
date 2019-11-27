@@ -112,7 +112,7 @@ export default {
 }
 
 #main-logo {
-  height: 250%;
+  height: 300%;
 }
 
 #mobile-menu-close-button {

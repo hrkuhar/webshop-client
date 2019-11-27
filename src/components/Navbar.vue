@@ -41,7 +41,6 @@
         v-for="subcategory in dropdownSubcategories"
         v-bind:key="subcategory.name"
         v-on:click="menuSubCategoryClicked($event)"
-
       >
         <p class="subcategory-name-container">{{ subcategory.name }}</p>
       </div>
@@ -93,13 +92,15 @@ export default {
       ) {
         subcategoryNameContainer = subcategoryNameContainer.children[0];
       }
-      this.$router.push({
-        name: "items",
-        params: {
-          category: this.selectedCategory.toLowerCase(),
-          subcategory: subcategoryNameContainer.innerHTML.toLowerCase()
-        }
-      }).catch(err => console.log(err.message));
+      this.$router
+        .push({
+          name: "items",
+          params: {
+            category: this.selectedCategory.toLowerCase(),
+            subcategory: subcategoryNameContainer.innerHTML.toLowerCase()
+          }
+        })
+        .catch(err => console.log(err.message));
     }
   },
   computed: {
@@ -130,13 +131,13 @@ export default {
 }
 
 #main-logo {
-  height: 250%;
+  height: 300%;
   padding-right: 40px;
 }
 
 #shopping-bag-icon {
-  height: 90%;
-  padding-right: 5px;
+  height: 100%;
+  padding: 5px;
 }
 
 #navbar-items-left {
@@ -193,14 +194,13 @@ export default {
 #navbar-dropdown {
   position: fixed;
   top: 60px;
-  left: 245px;
-  width: calc(100% - 245px);
+  left: 260px;
+  width: calc(100% - 260px);
   z-index: 101;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background-color: white;
 }
 
 .menu-categories {
@@ -215,7 +215,7 @@ export default {
   justify-content: flex-start;
 }
 
-.category-active{
+.category-active {
   background-color: rgb(237, 237, 237);
 }
 
@@ -229,7 +229,7 @@ export default {
   }
 
   #main-logo {
-    height: 300%;
+    height: 350%;
   }
 
   .menu-categories {
