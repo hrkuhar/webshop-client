@@ -201,6 +201,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  background-color: white;
 }
 
 .menu-categories {
