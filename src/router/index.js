@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Items from "../views/Items.vue";
+import ItemDetails from "../views/ItemDetails.vue";
 
 Vue.use(VueRouter);
 
@@ -20,6 +21,11 @@ const routes = [
     path: "/items",
     name: "items-all",
     component: Items
+  },
+  {
+    path: "/item/:id",
+    name: "item-details",
+    component: ItemDetails
   }
 ];
 

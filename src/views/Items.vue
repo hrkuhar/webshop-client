@@ -1,6 +1,11 @@
 <template>
   <div class="items-container">
-    <div class="item" v-for="item in items" v-bind:key="item.id" v-on:click="itemClicked($event, item)">
+    <div
+      class="item"
+      v-for="item in items"
+      v-bind:key="item.id"
+      v-on:click="itemClicked($event, item)"
+    >
       <img :src="item.image" />
       <p class="item-title-container">{{item.title}}</p>
       <p class="item-price-container">{{item.price}}</p>
@@ -11,9 +16,16 @@
 <script>
 export default {
   name: "items",
-  methods : {
-    itemClicked : function(event, item){
-      console.log(item.id);
+  methods: {
+    itemClicked: function(event, item) {
+      this.$router
+        .push({
+          name: "item-details",
+          params: {
+            id: item.id
+          }
+        })
+        .catch(err => console.log(err.message));
     }
   },
   computed: {
@@ -73,7 +85,7 @@ export default {
   justify-content: flex-start;
 }
 
-.item:hover{
+.item:hover {
   cursor: pointer;
 }
 
@@ -81,23 +93,23 @@ export default {
   width: 100%;
 }
 
-.item-title-container{
+.item-title-container {
   margin: 0;
   margin-top: 20px;
   font-size: 0.9em;
   color: grey;
 }
 
-.item-price-container{
+.item-price-container {
   margin: 0;
   font-size: 1.1em;
 }
 
 @media (min-width: 40rem) {
-.items-container{
-  margin-left: 100px;
-  margin-right: 100px;
-}
+  .items-container {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
 
   .item {
     width: 32%;
