@@ -31,7 +31,7 @@
         </div>-->
       </div>
       <div id="navbar-items-right">
-        <img id="shopping-bag-icon" alt="shopping bag icon" src="../assets/shopping-bag.svg" />
+        <img v-on:click="shoppingBagClicked" id="shopping-bag-icon" alt="shopping bag icon" src="../assets/shopping-bag.svg"/>
       </div>
     </div>
 
@@ -101,6 +101,9 @@ export default {
           }
         })
         .catch(err => console.log(err.message));
+    },
+     shoppingBagClicked() {
+      console.log(this.$store.getters.shoppingBag);
     }
   },
   computed: {

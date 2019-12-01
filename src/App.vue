@@ -30,6 +30,9 @@ export default {
       })
       .then(items => {
         var json = JSON.parse(items);
+        json.forEach(element => {
+          element.countInBag = 0;
+        });
         this.$store.commit("setItems", json);
         console.log(this.$store.getters.categories);
       });
