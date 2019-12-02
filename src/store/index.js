@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     mobileMenuShown: false,
+    shoppingBagSummaryShown: false,
     items: []
   },
   mutations: {
@@ -14,6 +15,12 @@ export default new Vuex.Store({
     },
     hideMobileMenu(state) {
       state.mobileMenuShown = false;
+    },
+    showShoppingBagSummary(state) {
+      state.shoppingBagSummaryShown = true;
+    },
+    hideShoppingBagSummary(state) {
+      state.shoppingBagSummaryShown = false;
     },
     setItems(state, payload) {
       state.items = payload;

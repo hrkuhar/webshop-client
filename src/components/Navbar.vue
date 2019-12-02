@@ -31,7 +31,14 @@
         </div>-->
       </div>
       <div id="navbar-items-right">
-        <img v-on:click="shoppingBagClicked" id="shopping-bag-icon" alt="shopping bag icon" src="../assets/shopping-bag.svg"/>
+        <img
+          v-on:click="shoppingBagClicked"
+          v-on:mouseover="shoppingBagMouseOver"
+          v-on:mouseleave="shoppingBagMouseLeave"
+          id="shopping-bag-icon"
+          alt="shopping bag icon"
+          src="../assets/shopping-bag.svg"
+        />
       </div>
     </div>
 
@@ -102,8 +109,16 @@ export default {
         })
         .catch(err => console.log(err.message));
     },
-     shoppingBagClicked() {
+    shoppingBagClicked() {
       console.log(this.$store.getters.shoppingBag);
+    },
+    shoppingBagMouseOver() {
+      console.log("shopping bage mouse over");
+      this.$store.commit("showShoppingBagSummary");
+    },
+    shoppingBagMouseLeave() {
+      console.log("shopping bage mouse leave");
+      this.$store.commit("hideShoppingBagSummary");
     }
   },
   computed: {
@@ -243,6 +258,10 @@ export default {
   .menu-category {
     display: block;
     padding-top: 10px;
+  }
+
+  #shopping-bag-icon:hover {
+    cursor: pointer;
   }
 }
 </style>

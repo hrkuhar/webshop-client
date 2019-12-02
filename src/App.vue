@@ -2,6 +2,7 @@
   <div id="app">
     <Navbar></Navbar>
     <MobileMenu v-if="mobileMenuShown"></MobileMenu>
+    <ShoppingBagSummary v-if="shoppingBagSummaryShown"></ShoppingBagSummary>
     <div id="main-content">
       <router-view />
     </div>
@@ -11,16 +12,22 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 import MobileMenu from "@/components/MobileMenu.vue";
+import ShoppingBagSummary from "@/components/ShoppingBagSummary.vue";
+
 
 export default {
   name: "App",
   components: {
     Navbar,
-    MobileMenu
+    MobileMenu,
+    ShoppingBagSummary
   },
   computed: {
     mobileMenuShown: function() {
       return this.$store.state.mobileMenuShown;
+    },
+    shoppingBagSummaryShown: function() {
+      return this.$store.state.shoppingBagSummaryShown;
     }
   },
   created: function() {
