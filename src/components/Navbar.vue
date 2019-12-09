@@ -8,7 +8,8 @@
           src="../assets/icon-menu-mobile.png"
           v-on:click="showMobileMenu"
         />
-        <img id="main-logo" alt="main logo" src="../assets/simple-shop-logo.png" />
+        <img           v-on:click="mainLogoClicked"
+ id="main-logo" alt="main logo" src="../assets/simple-shop-logo.png" />
 
         <ul class="menu-categories" v-on:mouseleave="menuCategoryMouseleave">
           <li
@@ -110,7 +111,11 @@ export default {
         .catch(err => console.log(err.message));
     },
     shoppingBagClicked() {
-      console.log(this.$store.getters.shoppingBag);
+       this.$router
+        .push({
+          name: "shopping-bag"
+        })
+        .catch(err => console.log(err.message));
     },
     shoppingBagMouseOver() {
       console.log("shopping bage mouse over");
@@ -119,6 +124,13 @@ export default {
     shoppingBagMouseLeave() {
       console.log("shopping bage mouse leave");
       this.$store.commit("hideShoppingBagSummary");
+    },
+    mainLogoClicked(){
+      this.$router
+        .push({
+          name: "home"
+        })
+        .catch(err => console.log(err.message));
     }
   },
   computed: {
@@ -202,6 +214,10 @@ export default {
 .menu-category:hover {
   cursor: default;
   background-color: rgb(237, 237, 237);
+}
+
+#main-logo:hover{
+    cursor: pointer;
 }
 
 .menu-subcategory:hover {

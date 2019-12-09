@@ -78,7 +78,7 @@ export default new Vuex.Store({
       return id => state.items.filter(i => i.id == id)[0];
     },
     shoppingBag : state => {
-      return state.items.filter(i => i.countInBag == 1);
+      return state.items.filter(i => i.countInBag >= 1);
     }
   },
   actions: {},
