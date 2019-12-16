@@ -103,6 +103,12 @@ export default {
 .item-price-container {
   margin: 0;
   font-size: 1.1em;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
 }
 
 @media (min-width: 40rem) {

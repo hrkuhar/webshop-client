@@ -77,8 +77,18 @@ export default new Vuex.Store({
     item(state) {
       return id => state.items.filter(i => i.id == id)[0];
     },
-    shoppingBag : state => {
+    shoppingBag: state => {
       return state.items.filter(i => i.countInBag >= 1);
+    },
+    shoppingBagTotalPrice: state => {
+      var total = 0;
+      var items = state.items.filter(i => i.countInBag >= 1);
+      for (var i = 0; i < items.length; ++i) {
+        var item = items[i];
+        var cost = item.price.split(" ")[0].replace(",", ".");
+        total += cost * item.countInBag;
+      }
+      return total + " kn";
     }
   },
   actions: {},

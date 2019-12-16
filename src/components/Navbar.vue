@@ -209,6 +209,7 @@ export default {
   padding-top: 6px;
   padding-bottom: 5px;
   border-bottom: 2px solid white;
+  background-color: white;
 }
 
 .menu-category:hover {
@@ -235,7 +236,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background-color: white;
+  background-color: transparent;
 }
 
 .menu-categories {
