@@ -63,7 +63,7 @@ export default {
     margin-right: 20px;
   }
 
-  #shopping-bag-total{
+  #shopping-bag-total {
     padding: 20px;
     font-weight: 600;
     color: white;

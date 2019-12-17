@@ -1,10 +1,17 @@
 <template>
-   <div id="shopping-bag-container">
-    <ul class="shopping-bag-items">
-      <li class="shopping-bag-item" v-for="item in shoppingBag" v-bind:key="item.name">
-        <p class="item-title-container">{{ item.title }} {{ item.countInBag }}</p>
-      </li>
-    </ul>
+  <div id="shopping-bag-container">
+    <div class="shopping-bag-item" v-for="item in shoppingBag" v-bind:key="item.name">
+      <img class="item-image" :src="item.image" />
+      <div class="item-data-container">
+        <div class="item-title">{{ item.title }}</div>
+        <div class="item-count-price">{{ item.countInBag }}x {{ item.price }}</div>
+        <button class="remove-from-bag-button" v-on:click="removeFromBag(item.id)">Remove from bag</button>
+      </div>
+    </div>
+    <div id="footer">
+      <div id="shopping-bag-total">TOTAL: {{this.shoppingBagTotalPrice}}</div>
+      <button id="checkout-button" v-on:click="checkoutClicked">CHECKOUT</button>
+    </div>
   </div>
 </template>
 
@@ -12,16 +19,131 @@
 export default {
   name: "ShoppingBag",
   methods: {
-    
+    removeFromBag: function(id) {
+      this.$store.commit("removeFromBag", id);
+    },
+    checkoutClicked: function() {
+      this.$router
+        .push({
+          name: "checkout"
+        })
+        .catch(err => console.log(err.message));
+    }
   },
   computed: {
     shoppingBag: function() {
       return this.$store.getters.shoppingBag;
+    },
+    shoppingBagTotalPrice: function() {
+      return this.$store.getters.shoppingBagTotalPrice;
     }
   }
 };
 </script>
 
 <style scoped>
+#shopping-bag-container {
+  display: block;
+  background-color: white;
+  padding-right: 0;
+  margin: 0;
+  padding-bottom: 120px;
+}
 
+.shopping-bag-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.item-data-container {
+  width: 100%;
+  text-align: center;
+}
+
+.item-image {
+  height: 200px;
+}
+
+.item-title {
+  font-size: 1.2em;
+  color: grey;
+  margin-bottom: 10px;
+}
+
+.remove-from-bag-button {
+  width: 60%;
+  margin: auto;
+  display: block;
+  height: 30px;
+  color: white;
+  background-color: black;
+  border: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+#shopping-bag-total {
+  padding: 20px;
+  font-weight: 600;
+  color: white;
+  background-color: black;
+  text-align: center;
+  margin-top: 20px;
+  height: 60px;
+}
+
+#checkout-button {
+  min-height: 60px;
+  width: 100%;
+  margin: auto;
+  display: block;
+  height: 30px;
+  color: black;
+  background-color: white;
+  border: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+#checkout-button:focus,
+.remove-from-bag-button:focus {
+  outline: none;
+  border: none;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+}
+
+@media (min-width: 40rem) {
+  #shopping-bag-container {
+    padding-left: 200px;
+    padding-right: 200px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .item-image {
+    height: 300px;
+  }
+
+  .remove-from-bag-button {
+    width: 40%;
+    height: 40px;
+  }
+
+  .remove-from-bag-button:hover {
+    cursor: pointer;
+  }
+
+  #checkout-button:hover {
+    cursor: pointer;
+  }
+}
 </style>

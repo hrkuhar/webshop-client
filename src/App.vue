@@ -14,7 +14,6 @@ import Navbar from "@/components/Navbar.vue";
 import MobileMenu from "@/components/MobileMenu.vue";
 import ShoppingBagSummary from "@/components/ShoppingBagSummary.vue";
 
-
 export default {
   name: "App",
   components: {
@@ -69,7 +68,7 @@ body {
 }
 
 @media (min-width: 40rem) {
-  #main-content{
+  #main-content {
     margin-top: 60px;
   }
 }
