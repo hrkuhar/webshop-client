@@ -1,9 +1,11 @@
 <template>
   <div class="home">
-    <div id="background-image-1" v-show="showBackground1" />
-    <div id="background-image-2" v-show="showBackground2" />
-    <div id="background-image-3" v-show="showBackground3" />
-    <div id="background-image-4" v-show="showBackground4" />
+    <transition name="fade" mode="out-in">
+      <div id="background-image-1" v-if="showBackground1" key="img1" />
+      <div id="background-image-2" v-else-if="showBackground2" key="img2" />
+      <div id="background-image-3" v-else-if="showBackground3" key="img3" />
+      <div id="background-image-4" v-else-if="showBackground4" key="img4" />
+    </transition>
   </div>
 </template>
 
@@ -72,6 +74,14 @@ export default {
   max-width: 100vw;
   margin: 0;
   margin-top: 50px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 
 @media (min-width: 40rem) {
