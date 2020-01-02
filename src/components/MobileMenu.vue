@@ -1,40 +1,50 @@
 <template>
   <div id="mobile-menu-overlay" v-on:click.self="hideMobileMenu">
-    <div id="mobile-menu">
-      <div id="mobile-menu-logo-container">
-        <img id="main-logo" alt="main logo" src="../assets/simple-shop-logo.png" />
-        <img
-          id="mobile-menu-close-button"
-          alt="close button"
-          src="../assets/close-button.svg"
-          v-on:click="hideMobileMenu"
-        />
-      </div>
+    <transition name="slide" mode="out-in">
+      <div id="mobile-menu" v-if="showMenu">
+        <div id="mobile-menu-logo-container">
+          <img id="main-logo" alt="main logo" src="../assets/simple-shop-logo.png" />
+          <img
+            id="mobile-menu-close-button"
+            alt="close button"
+            src="../assets/close-button.svg"
+            v-on:click="hideMobileMenu"
+          />
+        </div>
 
-      <div class="menu-category" v-for="category in categories" v-bind:key="category.name">
-        <div class="category-container" v-on:click="toggleSubCategories($event)">
-          <p>{{ category.name.toUpperCase() }}</p>
-          <img alt="down arrow" src="../assets/arrow-down.svg" />
-        </div>
-        <div
-          class="menu-subcategory"
-          v-for="subCategory in category.subCategories"
-          v-bind:key="subCategory.name"
-          v-on:click="menuSubCategoryClicked($event)"
-        >
-          <p>{{ subCategory.name }}</p>
+        <div class="menu-category" v-for="category in categories" v-bind:key="category.name">
+          <div class="category-container" v-on:click="toggleSubCategories($event)">
+            <p>{{ category.name.toUpperCase() }}</p>
+            <img alt="down arrow" src="../assets/arrow-down.svg" />
+          </div>
+          <div
+            class="menu-subcategory"
+            v-for="subCategory in category.subCategories"
+            v-bind:key="subCategory.name"
+            v-on:click="menuSubCategoryClicked($event)"
+          >
+            <p>{{ subCategory.name }}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
   name: "MobileMenu",
+  data: function() {
+    return {
+      showMenu: false
+    };
+  },
   methods: {
     hideMobileMenu() {
-      this.$store.commit("hideMobileMenu");
+      this.showMenu = false;
+      setTimeout(() => {
+        this.$store.commit("hideMobileMenu");
+      }, 1000);
     },
     toggleSubCategories(event) {
       console.log(event.target);
@@ -77,6 +87,9 @@ export default {
     categories: function() {
       return this.$store.getters.categories;
     }
+  },
+  mounted: function() {
+    this.showMenu = true;
   }
 };
 </script>
@@ -142,5 +155,13 @@ export default {
 
 .category-container img {
   height: 30%;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: 1s;
+}
+.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translate(-100%, 0);
 }
 </style>
