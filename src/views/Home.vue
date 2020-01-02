@@ -14,7 +14,7 @@ export default {
   name: "home",
   data: function() {
     return {
-      showBackground1: true,
+      showBackground1: false,
       showBackground2: false,
       showBackground3: false,
       showBackground4: false
@@ -40,6 +40,9 @@ export default {
         self.showBackground1 = true;
       }
     }, 5000);
+  },
+  mounted: function() {
+    this.showBackground1 = true;
   },
   methods: {}
 };
