@@ -129,13 +129,13 @@ export default {
 }
 
 #empty-message-container {
-  margin-top: 200px;
   text-align: center;
   font-size: 1.1em;
   font-weight: 600;
 }
 
 #icon-bag-empty {
+  margin-top: 150px;
   width: 150px;
   margin-bottom: 40px;
 }
@@ -166,10 +166,11 @@ export default {
   }
 
   #empty-message-container {
-    margin-top: 150px;
+    margin-top: 0;
   }
 
   #icon-bag-empty {
+    margin-top: 100px;
     width: 200px;
   }
 }
