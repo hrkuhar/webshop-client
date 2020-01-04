@@ -89,7 +89,10 @@ export default new Vuex.Store({
         total += cost * item.countInBag;
       }
       return total + " kn";
-    }
+    },
+    shoppingBagIsEmpty: state => {
+      return state.items.filter(i => i.countInBag >= 1).length == 0;
+    },
   },
   actions: {},
   modules: {}

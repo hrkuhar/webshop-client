@@ -1,5 +1,9 @@
 <template>
   <div id="shopping-bag-container">
+    <div v-if="shoppingBagIsEmpty" id="empty-message-container">
+      <img id="icon-bag-empty" alt="shopping bag empty" src="../assets/shopping-bag-empty.png" />
+      <p>YOUR SHOPPING BAG IS EMPTY</p>
+    </div>
     <div class="shopping-bag-item" v-for="item in shoppingBag" v-bind:key="item.name">
       <img class="item-image" :src="item.image" />
       <div class="item-data-container">
@@ -36,6 +40,9 @@ export default {
     },
     shoppingBagTotalPrice: function() {
       return this.$store.getters.shoppingBagTotalPrice;
+    },
+    shoppingBagIsEmpty: function() {
+      return this.$store.getters.shoppingBagIsEmpty;
     }
   }
 };
@@ -121,6 +128,18 @@ export default {
   width: 100%;
 }
 
+#empty-message-container {
+  margin-top: 200px;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+#icon-bag-empty {
+  width: 150px;
+  margin-bottom: 40px;
+}
+
 @media (min-width: 40rem) {
   #shopping-bag-container {
     padding-left: 200px;
@@ -144,6 +163,14 @@ export default {
 
   #checkout-button:hover {
     cursor: pointer;
+  }
+
+  #empty-message-container {
+    margin-top: 150px;
+  }
+
+  #icon-bag-empty {
+    width: 200px;
   }
 }
 </style>
