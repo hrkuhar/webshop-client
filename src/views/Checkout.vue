@@ -43,6 +43,33 @@ export default {
       var deliveryAddress = document.getElementById("delivery-address").value;
       var note = document.getElementById("note").value;
 
+      var canProceed = true;
+
+      if(firstName == null || firstName == undefined || firstName.trim() === ""){
+        document.getElementById("first-name").style.borderBottom = "2px solid red";
+        canProceed = false;
+      }else{
+        document.getElementById("first-name").style.borderBottom = "2px solid lightgrey";
+      }
+
+      if(lastName == null || lastName == undefined || lastName.trim() === ""){
+        document.getElementById("last-name").style.borderBottom = "2px solid red";
+        canProceed = false;
+      }else{
+        document.getElementById("last-name").style.borderBottom = "2px solid lightgrey";
+      }
+
+      if(deliveryAddress == null || deliveryAddress == undefined || deliveryAddress.trim() === ""){
+        document.getElementById("delivery-address").style.borderBottom = "2px solid red";
+        canProceed = false;
+      }else{
+        document.getElementById("delivery-address").style.borderBottom = "2px solid lightgrey";
+      }
+
+      if(!canProceed){
+        return;
+      }
+
       var request = {};
       request.firstName = firstName;
       request.lastName = lastName;
