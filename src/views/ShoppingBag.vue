@@ -14,7 +14,7 @@
     </div>
     <div id="footer">
       <div id="shopping-bag-total">TOTAL: {{this.shoppingBagTotalPrice}}</div>
-      <button id="checkout-button" v-on:click="checkoutClicked">CHECKOUT</button>
+      <button id="checkout-button" :disabled="shoppingBagIsEmpty" v-on:click="checkoutClicked">CHECKOUT</button>
     </div>
   </div>
 </template>
@@ -113,6 +113,10 @@ export default {
   border: 0;
   font-size: 1.1em;
   font-weight: 600;
+}
+
+#checkout-button:disabled{
+  color: lightgrey;
 }
 
 #checkout-button:focus,

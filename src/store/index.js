@@ -51,6 +51,11 @@ export default new Vuex.Store({
         item.countInBag = 0;
       }
       console.log(item);
+    },
+    clearBag(state){
+      state.items.forEach(item => {
+        item.countInBag = 0;
+      });
     }
   },
   getters: {
