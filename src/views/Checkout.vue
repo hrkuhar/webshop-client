@@ -8,15 +8,16 @@
     <input id="delivery-address" type="text" />
     <label for="note">Note</label>
     <textarea id="note"></textarea>
-
     <button id="order-button" v-on:click="orderClicked">ORDER</button>
-
     <div id="result-overlay" v-if="showResultOverlay">
-      <div id="success-message-popup" v-if="showSuccessMessagePopup">
-        <div id="success-message-container">
-          <button id="button-success-confirm" v-on:click="successConfirmed">CONTINUE</button>
+      <transition name="pop">
+        <div id="success-message-popup" v-if="showSuccessMessagePopup">
+          <div id="success-message-container">
+            <button id="button-success-confirm" v-on:click="successConfirmed">CONTINUE</button>
+          </div>
         </div>
-      </div>
+      </transition>
+
       <div id="failure-message-popup" v-if="showFailureMessagePopup">
         <div id="failure-message-container">
           <button id="button-failure-confirm" v-on:click="failureConfirmed">OK</button>
@@ -45,28 +46,42 @@ export default {
 
       var canProceed = true;
 
-      if(firstName == null || firstName == undefined || firstName.trim() === ""){
-        document.getElementById("first-name").style.borderBottom = "2px solid red";
+      if (
+        firstName == null ||
+        firstName == undefined ||
+        firstName.trim() === ""
+      ) {
+        document.getElementById("first-name").style.borderBottom =
+          "2px solid red";
         canProceed = false;
-      }else{
-        document.getElementById("first-name").style.borderBottom = "2px solid lightgrey";
+      } else {
+        document.getElementById("first-name").style.borderBottom =
+          "2px solid lightgrey";
       }
 
-      if(lastName == null || lastName == undefined || lastName.trim() === ""){
-        document.getElementById("last-name").style.borderBottom = "2px solid red";
+      if (lastName == null || lastName == undefined || lastName.trim() === "") {
+        document.getElementById("last-name").style.borderBottom =
+          "2px solid red";
         canProceed = false;
-      }else{
-        document.getElementById("last-name").style.borderBottom = "2px solid lightgrey";
+      } else {
+        document.getElementById("last-name").style.borderBottom =
+          "2px solid lightgrey";
       }
 
-      if(deliveryAddress == null || deliveryAddress == undefined || deliveryAddress.trim() === ""){
-        document.getElementById("delivery-address").style.borderBottom = "2px solid red";
+      if (
+        deliveryAddress == null ||
+        deliveryAddress == undefined ||
+        deliveryAddress.trim() === ""
+      ) {
+        document.getElementById("delivery-address").style.borderBottom =
+          "2px solid red";
         canProceed = false;
-      }else{
-        document.getElementById("delivery-address").style.borderBottom = "2px solid lightgrey";
+      } else {
+        document.getElementById("delivery-address").style.borderBottom =
+          "2px solid lightgrey";
       }
 
-      if(!canProceed){
+      if (!canProceed) {
         return;
       }
 
@@ -202,6 +217,8 @@ button:focus {
   top: 20%;
   left: 10%;
   background-color: white;
+  padding: 0;
+  margin: 0;
 }
 
 #success-message-container,
@@ -209,6 +226,29 @@ button:focus {
   height: 100%;
   width: 100%;
   background-color: white;
+}
+
+#button-success-confirm,
+#button-failure-confirm {
+  margin: 0;
+}
+
+.pop-enter-active {
+  animation: bounce-in 1s;
+}
+.pop-leave-active {
+  animation: bounce-in 1s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (min-width: 40rem) {
