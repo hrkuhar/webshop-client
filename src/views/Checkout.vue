@@ -109,9 +109,15 @@ export default {
         body: JSON.stringify(request)
       })
         .then(response => {
-          console.log(response.text());
-          this.$store.commit("clearBag");
-          this.showSuccessMessagePopup = true;
+          return response.json();
+        })
+        .then(json => {
+          if(json.success){
+            this.$store.commit("clearBag");
+            this.showSuccessMessagePopup = true;
+          }else{
+            this.showFailureMessagePopup = true;
+          }
         })
         .catch(reason => {
           console.log("ORDER ERROR: " + reason);
