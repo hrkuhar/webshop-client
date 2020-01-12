@@ -98,6 +98,11 @@ export default new Vuex.Store({
     shoppingBagIsEmpty: state => {
       return state.items.filter(i => i.countInBag >= 1).length == 0;
     },
+    shoppingBagItemCount: state => {
+      return state.items.reduce((total, item) => {
+        return total + item.countInBag;
+      }, 0);
+    }
   },
   actions: {},
   modules: {}

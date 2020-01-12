@@ -36,14 +36,20 @@
         </div>-->
       </div>
       <div id="navbar-items-right">
-        <img
-          v-on:click="shoppingBagClicked"
-          v-on:mouseover="shoppingBagMouseOver"
-          v-on:mouseleave="shoppingBagMouseLeave"
-          id="shopping-bag-icon"
-          alt="shopping bag icon"
-          src="../assets/shopping-bag.svg"
-        />
+        <div id="shopping-bag-icon-container">
+          <img
+            v-on:click="shoppingBagClicked"
+            v-on:mouseover="shoppingBagMouseOver"
+            v-on:mouseleave="shoppingBagMouseLeave"
+            id="shopping-bag-icon"
+            alt="shopping bag icon"
+            src="../assets/shopping-bag.svg"
+          />
+          <div
+            id="shopping-bag-counter"
+            v-if="shoppingBagItemCount != null && shoppingBagItemCount != undefined && shoppingBagItemCount > 0"
+          >{{shoppingBagItemCount}}</div>
+        </div>
       </div>
     </div>
 
@@ -140,6 +146,9 @@ export default {
   computed: {
     categories: function() {
       return this.$store.getters.categories;
+    },
+    shoppingBagItemCount: function() {
+      return this.$store.getters.shoppingBagItemCount;
     }
   }
 };
@@ -172,6 +181,13 @@ export default {
 #shopping-bag-icon {
   height: 100%;
   padding: 5px;
+}
+
+#shopping-bag-icon-container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
 }
 
 #navbar-items-left {
@@ -259,6 +275,21 @@ export default {
   background-color: rgb(237, 237, 237);
 }
 
+#shopping-bag-counter {
+  background-color: red;
+  color: white;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 101;
+  width: 35%;
+  height: 35%;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 0.85em;
+  pointer-events: none;
+}
+
 @media (min-width: 40rem) {
   #navbar {
     height: 60px;
@@ -282,6 +313,14 @@ export default {
   }
 
   #shopping-bag-icon:hover {
+    cursor: pointer;
+  }
+
+  #shopping-bag-counter {
+    font-size: 1em;
+  }
+
+  #shopping-bag-counter:hover {
     cursor: pointer;
   }
 }
