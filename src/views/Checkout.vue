@@ -19,16 +19,17 @@
           </div>
         </div>
       </transition>
-
-      <div id="failure-message-popup" v-if="showFailureMessagePopup">
-        <div id="failure-message-container">
-          <p
-            id="message-failure"
-          >OOOPS, SOMETHING WENT WRONG... PLEASE, CHECK YOUR INTERNET CONNECTION AND TRY AGAIN!</p>
-          <img id="icon-failure" alt="failure icon" src="../assets/icon-failure.png" />
-          <button id="button-failure-confirm" v-on:click="failureConfirmed">BACK</button>
+      <transition name="pop">
+        <div id="failure-message-popup" v-if="showFailureMessagePopup">
+          <div id="failure-message-container">
+            <p
+              id="message-failure"
+            >OOOPS, SOMETHING WENT WRONG... PLEASE, CHECK YOUR INTERNET CONNECTION AND TRY AGAIN!</p>
+            <img id="icon-failure" alt="failure icon" src="../assets/icon-failure.png" />
+            <button id="button-failure-confirm" v-on:click="failureConfirmed">BACK</button>
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
