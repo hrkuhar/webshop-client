@@ -13,6 +13,8 @@
       <transition name="pop">
         <div id="success-message-popup" v-if="showSuccessMessagePopup">
           <div id="success-message-container">
+            <p id="message-success">THANK YOU FOR YOUR PURCHASE!</p>
+            <img id="icon-success" alt="success icon" src="../assets/icon-success.png" />
             <button id="button-success-confirm" v-on:click="successConfirmed">CONTINUE</button>
           </div>
         </div>
@@ -20,7 +22,11 @@
 
       <div id="failure-message-popup" v-if="showFailureMessagePopup">
         <div id="failure-message-container">
-          <button id="button-failure-confirm" v-on:click="failureConfirmed">OK</button>
+          <p
+            id="message-failure"
+          >OOOPS, SOMETHING WENT WRONG... PLEASE, CHECK YOUR INTERNET CONNECTION AND TRY AGAIN!</p>
+          <img id="icon-failure" alt="failure icon" src="../assets/icon-failure.png" />
+          <button id="button-failure-confirm" v-on:click="failureConfirmed">BACK</button>
         </div>
       </div>
     </div>
@@ -32,8 +38,8 @@ export default {
   name: "checkout",
   data: function() {
     return {
-      showResultOverlay: false,
-      showSuccessMessagePopup: false,
+      showResultOverlay: true,
+      showSuccessMessagePopup: true,
       showFailureMessagePopup: false
     };
   },
@@ -102,7 +108,7 @@ export default {
         body: JSON.stringify(request)
       })
         .then(response => {
-          console.log(response);
+          console.log(response.text());
           this.$store.commit("clearBag");
           this.showSuccessMessagePopup = true;
         })
@@ -226,11 +232,27 @@ button:focus {
   height: 100%;
   width: 100%;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
 }
 
 #button-success-confirm,
 #button-failure-confirm {
-  margin: 0;
+  margin: 0 0 10px 0;
+}
+
+#message-success,
+#message-failure {
+  font-size: 1.1em;
+  font-weight: 600;
+  height: 50px;
+  text-align: center;
+  padding: 0 10px 0 10px;
 }
 
 .pop-enter-active {
@@ -239,6 +261,12 @@ button:focus {
 .pop-leave-active {
   animation: bounce-in 1s reverse;
 }
+
+#icon-success,
+#icon-failure {
+  width: 150px;
+}
+
 @keyframes bounce-in {
   0% {
     transform: scale(0);
@@ -269,6 +297,11 @@ button:focus {
     position: absolute;
     top: 15%;
     left: 25%;
+  }
+
+  #icon-success,
+  #icon-failure {
+    width: 200px;
   }
 }
 </style>

@@ -93,7 +93,7 @@ export default new Vuex.Store({
         var cost = item.price.split(" ")[0].replace(",", ".");
         total += cost * item.countInBag;
       }
-      return total + " kn";
+      return total.toFixed(2) + " kn";
     },
     shoppingBagIsEmpty: state => {
       return state.items.filter(i => i.countInBag >= 1).length == 0;

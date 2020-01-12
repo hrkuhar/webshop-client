@@ -66,34 +66,31 @@ export default {
 }
 
 @media (min-width: 40rem) {
-.container{
-   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-left: 100px;
-  margin-right: 100px;
-  padding-top: 40px;
-}
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 40px;
+  }
 
-.item-image{
-  width: 50%;
-}
+  .item-image {
+    width: 50%;
+  }
 
-.right-container{
-  width: 100%;
-  text-align: center;
-}
+  .right-container {
+    width: 100%;
+    text-align: center;
+  }
 
-.add-to-bag-button{
-  max-width: 400px;
-}
+  .add-to-bag-button {
+    max-width: 400px;
+  }
 
-.add-to-bag-button:hover{
-  cursor: pointer;
-}
-
-
-
+  .add-to-bag-button:hover {
+    cursor: pointer;
+  }
 }
 </style>
