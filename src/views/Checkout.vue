@@ -38,8 +38,8 @@ export default {
   name: "checkout",
   data: function() {
     return {
-      showResultOverlay: true,
-      showSuccessMessagePopup: true,
+      showResultOverlay: false,
+      showSuccessMessagePopup: false,
       showFailureMessagePopup: false
     };
   },
