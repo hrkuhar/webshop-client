@@ -6,6 +6,10 @@
     <input id="last-name" type="text" />
     <label for="delivery-address">Delivery address</label>
     <input id="delivery-address" type="text" />
+    <label for="phone-number">Telephone number</label>
+    <input id="phone-number" type="text" />
+    <label for="email">Email</label>
+    <input id="email" type="text" />
     <label for="note">Note</label>
     <textarea id="note"></textarea>
     <button id="order-button" v-on:click="orderClicked">ORDER</button>
@@ -49,6 +53,8 @@ export default {
       var firstName = document.getElementById("first-name").value;
       var lastName = document.getElementById("last-name").value;
       var deliveryAddress = document.getElementById("delivery-address").value;
+      var phoneNumber = document.getElementById("phone-number").value;
+      var email = document.getElementById("email").value;
       var note = document.getElementById("note").value;
 
       var canProceed = true;
@@ -88,6 +94,32 @@ export default {
           "2px solid lightgrey";
       }
 
+      if (
+        phoneNumber == null ||
+        phoneNumber == undefined ||
+        phoneNumber.trim() === ""
+      ) {
+        document.getElementById("phone-number").style.borderBottom =
+          "2px solid red";
+        canProceed = false;
+      } else {
+        document.getElementById("phone-number").style.borderBottom =
+          "2px solid lightgrey";
+      }
+
+      if (
+        email == null ||
+        email == undefined ||
+        email.trim() === ""
+      ) {
+        document.getElementById("email").style.borderBottom =
+          "2px solid red";
+        canProceed = false;
+      } else {
+        document.getElementById("email").style.borderBottom =
+          "2px solid lightgrey";
+      }
+
       if (!canProceed) {
         return;
       }
@@ -96,6 +128,8 @@ export default {
       request.firstName = firstName;
       request.lastName = lastName;
       request.deliveryAddress = deliveryAddress;
+      request.phoneNumber = phoneNumber;
+      request.email = email;
       request.note = note;
       request.items = this.shoppingBag;
 
