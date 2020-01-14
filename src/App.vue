@@ -40,7 +40,6 @@ export default {
           element.countInBag = 0;
         });
         this.$store.commit("setItems", json);
-        console.log(this.$store.getters.categories);
       });
   }
 };
@@ -68,13 +67,13 @@ body {
 }
 
 @media (min-width: 40rem) {
-  #main-content {
-    margin-top: 60px;
-  }
-
   body {
     height: calc(100% - 60px);
     margin: 0;
+  }
+
+  #main-content {
+    margin-top: 60px;
   }
 }
 </style>

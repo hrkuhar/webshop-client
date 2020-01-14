@@ -22,35 +22,24 @@ export default new Vuex.Store({
     hideShoppingBagSummary(state) {
       state.shoppingBagSummaryShown = false;
     },
-    setItems(state, payload) {
-      state.items = payload;
+    setItems(state, items) {
+      state.items = items;
     },
     addToBag(state, id) {
       var item = this.getters.item(id);
-
-      if (item.countInBag == undefined) {
-        item.countInBag = 1;
-      } else {
-        item.countInBag++;
-      }
-
-      console.log(item);
+      item.countInBag = item.countInBag == undefined ? 1 : item.countInBag + 1;
     },
     removeFromBag(state, id) {
       var item = this.getters.item(id);
-
       if (item.countInBag != undefined && item.countInBag > 0) {
         item.countInBag--;
       }
-      console.log(item);
     },
     clearFromBag(state, id) {
       var item = this.getters.item(id);
-
       if (item.countInBag != undefined && item.countInBag > 0) {
         item.countInBag = 0;
       }
-      console.log(item);
     },
     clearBag(state){
       state.items.forEach(item => {
@@ -61,7 +50,6 @@ export default new Vuex.Store({
   getters: {
     categories: state => {
       var categories = [];
-
       for (var item of state.items) {
         if (categories.filter(c => c.name == item.category).length == 0) {
           categories.push({ name: item.category, subCategories: [] });
@@ -76,7 +64,6 @@ export default new Vuex.Store({
             .subCategories.push({ name: item.subCategory });
         }
       }
-
       return categories;
     },
     item(state) {
@@ -103,7 +90,5 @@ export default new Vuex.Store({
         return total + item.countInBag;
       }, 0);
     }
-  },
-  actions: {},
-  modules: {}
+  }
 });
