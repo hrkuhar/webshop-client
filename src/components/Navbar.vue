@@ -174,8 +174,9 @@ export default {
 }
 
 #main-logo {
-  height: 300%;
+  width: 220px;
   padding-right: 40px;
+  padding-bottom: 3px;
 }
 
 #shopping-bag-icon {
@@ -219,6 +220,7 @@ export default {
   margin: 0 !important;
   display: none;
   height: 100%;
+  font-weight: 500;
 }
 
 .menu-subcategory {
@@ -230,6 +232,7 @@ export default {
   padding-bottom: 5px;
   border-bottom: 2px solid white;
   background-color: white;
+  font-weight: 500;
 }
 
 .menu-category:hover {
@@ -249,8 +252,8 @@ export default {
 #navbar-dropdown {
   position: fixed;
   top: 60px;
-  left: 260px;
-  width: calc(100% - 260px);
+  left: 270px;
+  width: calc(100% - 270px);
   z-index: 101;
   display: flex;
   flex-direction: row;
@@ -300,7 +303,8 @@ export default {
   }
 
   #main-logo {
-    height: 350%;
+    width: 250px;
+    padding-bottom: 5px;
   }
 
   .menu-categories {

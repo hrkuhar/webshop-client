@@ -125,7 +125,9 @@ export default {
 }
 
 #main-logo {
-  height: 300%;
+  width: 180px;
+  margin-left: -5px;
+  padding-bottom: 3px;
 }
 
 #mobile-menu-close-button {

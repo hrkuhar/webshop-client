@@ -39,6 +39,7 @@ export default {
     padding-left: 4px;
     padding-bottom: 4px;
     margin: 0;
+    z-index: 101;
   }
 
   .shopping-bag-item {
