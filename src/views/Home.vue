@@ -89,6 +89,7 @@ export default {
 
 .home {
   background: url(../assets/logo-image.png) no-repeat center center;
+  background-size: 250px;
 }
 
 @media (min-width: 40rem) {
@@ -101,7 +102,7 @@ export default {
   }
 
   .home {
-    background-size: 25%;
+    background-size: 350px;
   }
 }
 </style>
