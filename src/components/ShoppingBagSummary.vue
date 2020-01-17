@@ -5,7 +5,7 @@
       <div class="item-title">{{ item.title }}</div>
       <div class="item-count">{{ item.countInBag }}x</div>
     </div>
-    <div id="shopping-bag-total">TOTAL: {{this.shoppingBagTotalPrice}}</div>
+    <!-- <div id="shopping-bag-total">TOTAL: {{this.shoppingBagTotalPrice}}</div> -->
   </div>
 </template>
 

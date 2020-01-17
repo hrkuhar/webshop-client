@@ -98,30 +98,33 @@ export default {
 }
 
 #shopping-bag-total {
-  padding: 20px;
+  display: block;
+  margin:auto;
   font-weight: 600;
   color: white;
-  background-color: black;
+  background-color: red;
   text-align: center;
   margin-top: 20px;
-  height: 60px;
+  height: 50px;
+  width: 96%;
+  padding-top: 15px;
 }
 
 #checkout-button {
-  min-height: 60px;
-  width: 100%;
+  width: 96%;
   margin: auto;
   display: block;
-  height: 30px;
-  color: black;
-  background-color: white;
+  height: 50px;
+  color: white;
+  background-color: black;
   border: 0;
   font-size: 1.1em;
   font-weight: 600;
+  margin-top: 5px;
 }
 
 #checkout-button:disabled {
-  color: lightgrey;
+  color: grey;
 }
 
 #checkout-button:focus,
@@ -135,6 +138,7 @@ export default {
   bottom: 0px;
   left: 0;
   width: 100%;
+  padding-bottom: 10px;
 }
 
 #empty-message-container {
@@ -150,10 +154,9 @@ export default {
 }
 
 @media (min-width: 40rem) {
-  #shopping-bag-container {
+  #shopping-bag-container, #footer {
     padding-left: 200px;
     padding-right: 200px;
-    max-width: 1200px;
     margin: auto;
   }
 

@@ -188,17 +188,15 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   padding: 0;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 input {
   display: block;
-  width: 100%;
   height: 40px;
   font-size: 1.4em;
   border: none;
   border-bottom: 2px solid lightgrey;
+  width: 96%;
 }
 
 input:focus {
@@ -209,11 +207,11 @@ input:focus {
 
 textarea {
   display: block;
-  width: 100%;
   height: 200px;
   resize: none;
   font-size: 1.4em;
   border: 2px solid lightgrey;
+  width: 96%;
 }
 
 textarea:focus {
@@ -222,12 +220,12 @@ textarea:focus {
 }
 
 label {
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 10px;
 }
 
 button {
-  width: 100%;
+  width: 96%;
   margin: auto;
   display: block;
   height: 50px;
@@ -236,8 +234,8 @@ button {
   border: 0;
   font-size: 1.1em;
   font-weight: 600;
-  margin-top: 80px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 button:focus {

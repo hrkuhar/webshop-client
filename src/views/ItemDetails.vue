@@ -86,7 +86,8 @@ export default {
   }
 
   .add-to-bag-button {
-    max-width: 400px;
+    max-width: 350px;
+    width: 80%;
   }
 
   .add-to-bag-button:hover {
