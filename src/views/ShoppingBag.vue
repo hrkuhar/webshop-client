@@ -12,14 +12,12 @@
         <button class="remove-from-bag-button" v-on:click="removeFromBag(item.id)">Remove from bag</button>
       </div>
     </div>
-    <div id="footer">
       <div id="shopping-bag-total">TOTAL: {{this.shoppingBagTotalPrice}}</div>
       <button
         id="checkout-button"
         :disabled="shoppingBagIsEmpty"
         v-on:click="checkoutClicked"
       >CHECKOUT</button>
-    </div>
   </div>
 </template>
 
@@ -133,14 +131,6 @@ export default {
   border: none;
 }
 
-#footer {
-  position: fixed;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  padding-bottom: 10px;
-}
-
 #empty-message-container {
   text-align: center;
   font-size: 1.1em;
@@ -154,9 +144,10 @@ export default {
 }
 
 @media (min-width: 40rem) {
-  #shopping-bag-container, #footer {
-    padding-left: 200px;
-    padding-right: 200px;
+  #shopping-bag-container {
+    padding-left: 100px;
+    padding-right: 100px;
+    max-width: 1200px;
     margin: auto;
   }
 

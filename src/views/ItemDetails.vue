@@ -71,9 +71,11 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-left: 100px;
-    margin-right: 100px;
     padding-top: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+    max-width: 1200px;
+    margin: auto;
   }
 
   .item-image {

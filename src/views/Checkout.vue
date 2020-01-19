@@ -319,6 +319,13 @@ button:focus {
 }
 
 @media (min-width: 40rem) {
+#checkout-container{
+  padding-left: 100px;
+    padding-right: 100px;
+    max-width: 1200px;
+    margin: auto;
+}
+
   button,
   input,
   textarea {

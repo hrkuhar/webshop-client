@@ -63,7 +63,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -79,7 +79,7 @@ export default {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   align-content: center;
   justify-content: flex-start;
@@ -113,8 +113,10 @@ export default {
 
 @media (min-width: 40rem) {
   .items-container {
-    margin-left: 100px;
-    margin-right: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    max-width: 1200px;
+    margin: auto;
   }
 
   .item {
