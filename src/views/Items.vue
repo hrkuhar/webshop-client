@@ -82,7 +82,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   align-content: center;
-  justify-content: flex-start;
 }
 
 .item:hover {
