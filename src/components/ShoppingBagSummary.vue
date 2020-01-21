@@ -40,6 +40,7 @@ export default {
     padding-bottom: 4px;
     margin: 0;
     z-index: 101;
+    max-width: 400px;
   }
 
   .shopping-bag-item {

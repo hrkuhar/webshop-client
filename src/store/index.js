@@ -78,6 +78,9 @@ export default new Vuex.Store({
       for (var i = 0; i < items.length; ++i) {
         var item = items[i];
         var cost = item.price.split(" ")[0].replace(",", ".");
+        if(cost.indexOf(".") != cost.lastIndexOf(".")){
+          cost = cost.slice(0, cost.indexOf(".")) + cost.slice(cost.indexOf(".") + 1);
+        }
         total += cost * item.countInBag;
       }
       return total.toFixed(2) + " kn";

@@ -56,7 +56,8 @@ export default {
   background-color: white;
   padding-right: 0;
   margin: 0;
-  padding-bottom: 120px;
+    padding: 10px;
+    padding-top: 20px;
 }
 
 .shopping-bag-item {
@@ -64,6 +65,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  margin-bottom: 20px;
 }
 
 .item-data-container {
@@ -72,17 +74,16 @@ export default {
 }
 
 .item-image {
-  height: 200px;
+  height: 180px;
 }
 
 .item-title {
   font-size: 1.2em;
   color: grey;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .remove-from-bag-button {
-  width: 60%;
   margin: auto;
   display: block;
   height: 30px;
@@ -92,7 +93,8 @@ export default {
   font-size: 1.1em;
   font-weight: 600;
   margin-top: 10px;
-  min-width: 180px;
+  min-width: 150px;
+  border-radius: 8px;
 }
 
 #shopping-bag-total {
@@ -104,12 +106,12 @@ export default {
   text-align: center;
   margin-top: 20px;
   height: 50px;
-  width: 96%;
   padding-top: 15px;
+  border-radius: 15px;
 }
 
 #checkout-button {
-  width: 96%;
+  width: 100%;
   margin: auto;
   display: block;
   height: 50px;
@@ -119,6 +121,7 @@ export default {
   font-size: 1.1em;
   font-weight: 600;
   margin-top: 5px;
+  border-radius: 15px;
 }
 
 #checkout-button:disabled {
@@ -158,6 +161,7 @@ export default {
   .remove-from-bag-button {
     width: 40%;
     height: 40px;
+    border-radius: 15px;
   }
 
   .remove-from-bag-button:hover {

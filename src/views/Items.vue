@@ -6,7 +6,7 @@
       v-bind:key="item.id"
       v-on:click="itemClicked($event, item)"
     >
-      <img :src="item.image" />
+      <img :src="item.image" class="item-image" />
       <p class="item-title-container">{{item.title}}</p>
       <p class="item-price-container">{{item.price}}</p>
     </div>
@@ -70,6 +70,7 @@ export default {
   margin: auto;
   margin-left: 0;
   margin-right: 0;
+  padding-top: 10px;
 }
 
 .item {
@@ -82,6 +83,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  padding: 10px;
 }
 
 .item:hover {
@@ -108,6 +110,7 @@ export default {
   font-weight: 600;
   margin-top: 10px;
   text-align: center;
+  border-radius: 15px;
 }
 
 @media (min-width: 40rem) {

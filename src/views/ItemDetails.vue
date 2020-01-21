@@ -34,23 +34,21 @@ export default {
 .item-title-container {
   font-size: 1.1em;
   color: grey;
-  margin-left: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .item-price-container {
   font-size: 1.3em;
-  margin-left: 20px;
 }
 
 .item-description-container {
   font-size: 1em;
-  margin-left: 20px;
   margin-top: 0;
+  text-align: left;
 }
 
 .add-to-bag-button {
-  width: 96%;
+  width: 100%;
   margin: auto;
   display: block;
   height: 50px;
@@ -59,10 +57,16 @@ export default {
   border: 0;
   font-size: 1.1em;
   font-weight: 600;
+  border-radius: 15px;
 }
 
 .add-to-bag-button:focus {
   outline: none;
+}
+
+.container{
+  padding: 10px;
+  padding-top: 20px;
 }
 
 @media (min-width: 40rem) {
@@ -80,6 +84,7 @@ export default {
 
   .item-image {
     width: 50%;
+    padding-right: 10px;
   }
 
   .right-container {

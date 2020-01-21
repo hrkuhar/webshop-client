@@ -220,8 +220,13 @@ textarea:focus {
 }
 
 label {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 10px;
+  background-color: black;
+  color: white;
+  padding: 6px;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
 button {
@@ -236,6 +241,7 @@ button {
   font-weight: 600;
   margin-top: 40px;
   margin-bottom: 10px;
+  border-radius: 15px;
 }
 
 button:focus {
@@ -264,6 +270,8 @@ button:focus {
   background-color: white;
   padding: 0;
   margin: 0;
+    border-radius: 20px;
+
 }
 
 #success-message-container,
@@ -278,6 +286,8 @@ button:focus {
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
+    border-radius: 20px;
+
 }
 
 #button-success-confirm,
