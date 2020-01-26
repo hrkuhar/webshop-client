@@ -1,7 +1,7 @@
 <template>
   <div id="shopping-bag-container">
     <div v-if="shoppingBagIsEmpty" id="empty-message-container">
-      <img id="icon-bag-empty" alt="shopping bag empty" src="../assets/shopping-bag-empty.png" />
+      <img id="icon-bag-empty" alt="shopping bag empty" src="../assets/shopping-bag.svg" />
       <p>YOUR SHOPPING BAG IS EMPTY</p>
     </div>
     <div class="shopping-bag-item" v-for="item in shoppingBag" v-bind:key="item.name">
@@ -9,15 +9,18 @@
       <div class="item-data-container">
         <div class="item-title">{{ item.title }}</div>
         <div class="item-count-price">{{ item.countInBag }}x {{ item.price }}</div>
-        <button class="remove-from-bag-button" v-on:click="removeFromBag(item.id)">Remove from bag</button>
+        <button class="remove-from-bag-button" v-on:click="removeFromBag(item.id)">REMOVE</button>
       </div>
     </div>
+    <div id="bottom-items-container">
       <div id="shopping-bag-total">TOTAL: {{this.shoppingBagTotalPrice}}</div>
-      <button
-        id="checkout-button"
-        :disabled="shoppingBagIsEmpty"
-        v-on:click="checkoutClicked"
-      >CHECKOUT</button>
+    <button
+      id="checkout-button"
+      :disabled="shoppingBagIsEmpty"
+      v-on:click="checkoutClicked"
+    >CHECKOUT</button>
+    </div>
+    
   </div>
 </template>
 
@@ -52,12 +55,20 @@ export default {
 
 <style scoped>
 #shopping-bag-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
   background-color: white;
   padding-right: 0;
   margin: 0;
-    padding: 10px;
-    padding-top: 20px;
+  padding: 10px;
+  padding-top: 20px;
+  min-height: calc(100vh - 50px);
 }
 
 .shopping-bag-item {
@@ -93,21 +104,28 @@ export default {
   font-size: 1.1em;
   font-weight: 600;
   margin-top: 10px;
-  min-width: 150px;
   border-radius: 8px;
+     padding-left: 20px;
+    padding-right: 20px;
+}
+
+#bottom-items-container{
+  width: 100%;
 }
 
 #shopping-bag-total {
   display: block;
-  margin:auto;
+  margin: auto;
   font-weight: 600;
   color: white;
   background-color: red;
   text-align: center;
   margin-top: 20px;
   height: 50px;
-  padding-top: 15px;
-  border-radius: 15px;
+  width: 100%;
+  line-height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #checkout-button {
@@ -125,7 +143,7 @@ export default {
 }
 
 #checkout-button:disabled {
-  color: grey;
+  background-color: gray;
 }
 
 #checkout-button:focus,
@@ -141,17 +159,18 @@ export default {
 }
 
 #icon-bag-empty {
-  margin-top: 150px;
   width: 150px;
-  margin-bottom: 40px;
+  padding-bottom: 20px;
+  padding-top: 40%;
 }
 
 @media (min-width: 40rem) {
   #shopping-bag-container {
-    padding-left: 100px;
-    padding-right: 100px;
-    max-width: 1200px;
+    padding-left: 280px;
+    padding-right: 280px;
     margin: auto;
+    background-color: transparent;
+      min-height: calc(100vh - 60px);
   }
 
   .item-image {
@@ -159,13 +178,18 @@ export default {
   }
 
   .remove-from-bag-button {
-    width: 40%;
     height: 40px;
     border-radius: 15px;
+    width: auto;
+ 
+    transition: all 0.4s ease 0s;
   }
 
   .remove-from-bag-button:hover {
     cursor: pointer;
+    background-color: red;
+    letter-spacing: 3px;
+    transition: all 0.4s ease 0s;
   }
 
   #checkout-button:hover {
@@ -177,8 +201,41 @@ export default {
   }
 
   #icon-bag-empty {
-    margin-top: 100px;
     width: 200px;
+  }
+
+  #checkout-button {
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: all 0.4s ease 0s;
+  }
+
+  #checkout-button:hover {
+    cursor: pointer;
+
+    background-color: green;
+    letter-spacing: 3px;
+    transition: all 0.4s ease 0s;
+  }
+
+  #checkout-button:disabled {
+    background-color: black;
+  }
+
+  #checkout-button:disabled:hover {
+    cursor: pointer;
+
+    background-color: gray;
+    letter-spacing: 3px;
+    transition: all 0.4s ease 0s;
+  }
+
+  #shopping-bag-total {
+    padding-left: 20px;
+    padding-right: 20px;
+      width: fit-content;
+
   }
 }
 </style>

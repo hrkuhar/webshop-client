@@ -64,13 +64,15 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
-  align-content: center;
-  justify-content: center;
+  align-content: flex-start;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin: auto;
   margin-left: 0;
   margin-right: 0;
   padding-top: 10px;
+  background-color: white;
+        min-height: calc(100vh - 60px);
 }
 
 .item {
@@ -88,7 +90,8 @@ export default {
 
 .item:hover {
   cursor: pointer;
-}
+  box-shadow:  0px 0px 51px -26px rgba(0,0,0,0.75);
+  }
 
 .item > img {
   width: 100%;
@@ -115,14 +118,14 @@ export default {
 
 @media (min-width: 40rem) {
   .items-container {
-    padding-left: 100px;
-    padding-right: 100px;
-    max-width: 1200px;
+    padding-left: 200px;
+    padding-right: 200px;
     margin: auto;
+      background-color: transparent;
   }
 
   .item {
-    width: 32%;
+    width: 30%;
   }
 }
 </style>

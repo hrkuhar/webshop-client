@@ -188,6 +188,8 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   padding: 0;
+  background-color: white;
+        min-height: calc(100vh - 60px);
 }
 
 input {
@@ -242,10 +244,31 @@ button {
   margin-top: 40px;
   margin-bottom: 10px;
   border-radius: 15px;
+      transition: all 0.4s ease 0s;
 }
 
 button:focus {
   outline: none;
+}
+
+.button:after {
+  content: "";
+  background: #90EE90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
 }
 
 #result-overlay {
@@ -299,9 +322,10 @@ button:focus {
 #message-failure {
   font-size: 1.1em;
   font-weight: 600;
-  height: 50px;
   text-align: center;
   padding: 0 10px 0 10px;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .pop-enter-active {
@@ -330,20 +354,29 @@ button:focus {
 
 @media (min-width: 40rem) {
 #checkout-container{
-  padding-left: 100px;
-    padding-right: 100px;
-    max-width: 1200px;
+  padding-left: 200px;
+    padding-right: 200px;
     margin: auto;
+      background-color: transparent;
 }
 
-  button,
   input,
   textarea {
     max-width: 600px;
   }
 
+  button{
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   button:hover {
-    cursor: pointer;
+       cursor: pointer;
+
+    background-color: green;
+    letter-spacing: 3px;
+    transition: all 0.4s ease 0s;
   }
 
   #success-message-popup,

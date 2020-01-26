@@ -66,6 +66,15 @@ body {
   width: 100%;
 }
 
+#app{
+  background: url(assets/app-background-transparent.png), url(assets/app-background-transparent.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: -200px 60px, calc(100% + 200px) 98%;
+  background-size: 400px, 400px;
+  background-attachment: fixed, fixed;
+  min-height: calc(100vh - 60px);
+}
+
 @media (min-width: 40rem) {
   body {
     height: calc(100% - 60px);

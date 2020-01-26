@@ -87,10 +87,6 @@ export default {
   opacity: 0;
 }
 
-.home {
-  background: url(../assets/logo-image.png) no-repeat center center;
-  background-size: 250px;
-}
 
 @media (min-width: 40rem) {
   #background-image-1,
@@ -99,10 +95,6 @@ export default {
   #background-image-4 {
     min-height: calc(100vh - 60px);
     margin-top: 60px;
-  }
-
-  .home {
-    background-size: 350px;
   }
 }
 </style>

@@ -5,7 +5,7 @@
       <p class="item-title-container">{{item.title}}</p>
       <p class="item-description-container">{{item.description}}</p>
       <p class="item-price-container">{{item.price}}</p>
-      <button class="add-to-bag-button" v-on:click="addToBag">Add to bag</button>
+      <button class="add-to-bag-button" v-on:click="addToBag">ADD TO BAG</button>
     </div>
   </div>
 </template>
@@ -31,20 +31,28 @@ export default {
   width: 100%;
 }
 
+.right-container {
+    text-align: center;
+  }
+
 .item-title-container {
   font-size: 1.1em;
   color: grey;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .item-price-container {
   font-size: 1.3em;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
 }
 
 .item-description-container {
   font-size: 1em;
   margin-top: 0;
   text-align: left;
+  line-height: 1.5;
 }
 
 .add-to-bag-button {
@@ -58,6 +66,9 @@ export default {
   font-size: 1.1em;
   font-weight: 600;
   border-radius: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: all 0.4s ease 0s;
 }
 
 .add-to-bag-button:focus {
@@ -66,7 +77,8 @@ export default {
 
 .container{
   padding: 10px;
-  padding-top: 20px;
+    background-color: white;
+        min-height: calc(100vh - 60px);
 }
 
 @media (min-width: 40rem) {
@@ -75,30 +87,30 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-top: 40px;
-    padding-left: 100px;
-    padding-right: 100px;
-    max-width: 1200px;
+   padding-left: 220px;
+    padding-right: 220px;
     margin: auto;
+    background-color: transparent;
   }
 
   .item-image {
-    width: 50%;
-    padding-right: 10px;
+    width: 55%;
+    padding-right: 20px;
   }
 
-  .right-container {
-    width: 100%;
-    text-align: center;
-  }
+  
 
   .add-to-bag-button {
-    max-width: 350px;
-    width: 80%;
+    width: auto;
   }
 
-  .add-to-bag-button:hover {
-    cursor: pointer;
-  }
+  .add-to-bag-button:hover{
+        cursor: pointer;
+
+  background-color: green;
+letter-spacing: 3px;
+transition: all 0.4s ease 0s;
+}
+
 }
 </style>
