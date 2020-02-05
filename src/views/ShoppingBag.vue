@@ -126,6 +126,7 @@ export default {
   line-height: 50px;
   padding-left: 20px;
   padding-right: 20px;
+  border-radius: 15px;
 }
 
 #checkout-button {
