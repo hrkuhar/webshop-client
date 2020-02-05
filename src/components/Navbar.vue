@@ -115,7 +115,8 @@ export default {
           name: "items",
           params: {
             category: this.selectedCategory.toLowerCase(),
-            subcategory: subcategoryNameContainer.innerHTML.toLowerCase()
+            subcategory: subcategoryNameContainer.innerHTML.toLowerCase(),
+            page: "1"
           }
         })
         .catch(err => console.log(err.message));

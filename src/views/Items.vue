@@ -2,7 +2,7 @@
   <div class="items-container">
     <div
       class="item"
-      v-for="item in items"
+      v-for="item in shownItems"
       v-bind:key="item.id"
       v-on:click="itemClicked($event, item)"
     >
@@ -10,12 +10,25 @@
       <p class="item-title-container">{{item.title}}</p>
       <p class="item-price-container">{{item.price}}</p>
     </div>
+    
+    <ul>
+       <li v-for="n in pagesCount" :key="n" v-on:click="goToPage(n)" v-bind:class="{ 'page-selected' : n == $route.params.page }">
+      
+      {{n}}
+    </li>
+    </ul>
+   
   </div>
 </template>
 
 <script>
 export default {
   name: "items",
+   data: function() {
+    return {
+      itemCountPerPage : 2
+    };
+  },
   methods: {
     itemClicked: function(event, item) {
       this.$router
@@ -23,6 +36,18 @@ export default {
           name: "item-details",
           params: {
             id: item.id
+          }
+        })
+        .catch(err => console.log(err.message));
+    },
+    goToPage: function(index) {
+       this.$router
+        .push({
+          name: "items",
+          params: {
+            category: this.$route.params.category,
+            subcategory: this.$route.params.subcategory,
+            page: index
           }
         })
         .catch(err => console.log(err.message));
@@ -53,7 +78,13 @@ export default {
         subCategory = subCategory.toLowerCase();
       }
       return subCategory;
-    }
+    },
+    pagesCount: function(){
+      return Math.ceil(this.items.length / this.itemCountPerPage);
+},
+ shownItems: function(){
+      return this.items.slice((this.$route.params.page - 1) * this.itemCountPerPage, this.$route.params.page * this.itemCountPerPage);
+}
   }
 };
 </script>
@@ -114,6 +145,10 @@ export default {
   margin-top: 10px;
   text-align: center;
   border-radius: 15px;
+}
+
+.page-selected{
+  background-color: red;
 }
 
 @media (min-width: 40rem) {

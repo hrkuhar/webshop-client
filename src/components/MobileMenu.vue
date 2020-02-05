@@ -75,7 +75,8 @@ export default {
           name: "items",
           params: {
             category: categoryLink,
-            subcategory: subcategoryLink
+            subcategory: subcategoryLink,
+            page: "1"
           }
         })
         .catch(err => console.log(err.message));
