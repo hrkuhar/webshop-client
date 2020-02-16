@@ -131,9 +131,18 @@ export default {
       request.phoneNumber = phoneNumber;
       request.email = email;
       request.note = note;
-      request.items = this.shoppingBag;
+
+      request.items = [];
+      this.shoppingBag.forEach(item => {
+        var requestItem = {};
+        requestItem.itemId = item.id;
+        requestItem.quantity = item.countInBag;
+        request.items.push(requestItem);
+      });
 
       this.showResultOverlay = true;
+
+      console.log(request);
 
       fetch("http://localhost:3000/api/orders/insert", {
         method: "POST",
