@@ -5,47 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    mobileMenuShown: false,
-    shoppingBagSummaryShown: false,
+    showMobileMenu: false,
+    showShoppingBagSummary: false,
     items: []
-  },
-  mutations: {
-    showMobileMenu(state) {
-      state.mobileMenuShown = true;
-    },
-    hideMobileMenu(state) {
-      state.mobileMenuShown = false;
-    },
-    showShoppingBagSummary(state) {
-      state.shoppingBagSummaryShown = true;
-    },
-    hideShoppingBagSummary(state) {
-      state.shoppingBagSummaryShown = false;
-    },
-    setItems(state, items) {
-      state.items = items;
-    },
-    addToBag(state, id) {
-      var item = this.getters.item(id);
-      item.countInBag = item.countInBag == undefined ? 1 : item.countInBag + 1;
-    },
-    removeFromBag(state, id) {
-      var item = this.getters.item(id);
-      if (item.countInBag != undefined && item.countInBag > 0) {
-        item.countInBag--;
-      }
-    },
-    clearFromBag(state, id) {
-      var item = this.getters.item(id);
-      if (item.countInBag != undefined && item.countInBag > 0) {
-        item.countInBag = 0;
-      }
-    },
-    clearBag(state){
-      state.items.forEach(item => {
-        item.countInBag = 0;
-      });
-    }
   },
   getters: {
     categories: state => {
@@ -92,6 +54,44 @@ export default new Vuex.Store({
       return state.items.reduce((total, item) => {
         return total + item.countInBag;
       }, 0);
+    }
+  },
+  mutations: {
+    showMobileMenu(state) {
+      state.showMobileMenu = true;
+    },
+    hideMobileMenu(state) {
+      state.showMobileMenu = false;
+    },
+    showShoppingBagSummary(state) {
+      state.shoppingBagSummaryShown = true;
+    },
+    hideShoppingBagSummary(state) {
+      state.shoppingBagSummaryShown = false;
+    },
+    setItems(state, items) {
+      state.items = items;
+    },
+    addToBag(state, id) {
+      var item = this.getters.item(id);
+      item.countInBag = item.countInBag == undefined ? 1 : item.countInBag + 1;
+    },
+    removeFromBag(state, id) {
+      var item = this.getters.item(id);
+      if (item.countInBag != undefined && item.countInBag > 0) {
+        item.countInBag--;
+      }
+    },
+    removeAllFromBag(state, id) {
+      var item = this.getters.item(id);
+      if (item.countInBag != undefined && item.countInBag > 0) {
+        item.countInBag = 0;
+      }
+    },
+    clearBag(state){
+      state.items.forEach(item => {
+        item.countInBag = 0;
+      });
     }
   }
 });

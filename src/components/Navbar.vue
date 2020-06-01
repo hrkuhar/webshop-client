@@ -314,7 +314,7 @@ export default {
 
   .menu-category {
     display: block;
-    padding-top: 6px;
+    padding-top: 4px;
   }
 
   #shopping-bag-icon:hover {

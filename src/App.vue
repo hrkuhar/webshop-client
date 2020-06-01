@@ -56,6 +56,7 @@ html {
   height: 100%;
   font-family: 'Anton', sans-serif;
   margin: 0;
+  font-size: 18px;
 }
 
 body {
