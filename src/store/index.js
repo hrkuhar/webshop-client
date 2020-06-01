@@ -64,10 +64,10 @@ export default new Vuex.Store({
       state.showMobileMenu = false;
     },
     showShoppingBagSummary(state) {
-      state.shoppingBagSummaryShown = true;
+      state.showShoppingBagSummary = true;
     },
     hideShoppingBagSummary(state) {
-      state.shoppingBagSummaryShown = false;
+      state.showShoppingBagSummary = false;
     },
     setItems(state, items) {
       state.items = items;

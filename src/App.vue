@@ -23,10 +23,10 @@ export default {
   },
   computed: {
     mobileMenuShown: function() {
-      return this.$store.state.mobileMenuShown;
+      return this.$store.state.showMobileMenu;
     },
     shoppingBagSummaryShown: function() {
-      return this.$store.state.shoppingBagSummaryShown;
+      return this.$store.state.showShoppingBagSummary;
     }
   },
   created: function() {
