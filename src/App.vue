@@ -32,7 +32,9 @@ export default {
   created: function() {
     fetch("http://localhost:3000/items")
       .then(response => {
-        return response.text();
+        var resText = response.text();
+        console.log(resText);
+        return resText;
       })
       .then(items => {
         var json = JSON.parse(items);
@@ -52,7 +54,8 @@ export default {
 
 html {
   height: 100%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Anton', sans-serif;
+  margin: 0;
 }
 
 body {
