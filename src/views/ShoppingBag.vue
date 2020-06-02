@@ -102,9 +102,8 @@ export default {
   background-color: black;
   border: 0;
   font-size: 1.1em;
-  font-weight: 600;
   margin-top: 10px;
-  border-radius: 8px;
+  border-radius: 5px;
      padding-left: 20px;
     padding-right: 20px;
 }
@@ -116,7 +115,6 @@ export default {
 #shopping-bag-total {
   display: block;
   margin: auto;
-  font-weight: 600;
   color: white;
   background-color: red;
   text-align: center;
@@ -126,7 +124,7 @@ export default {
   line-height: 50px;
   padding-left: 20px;
   padding-right: 20px;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 #checkout-button {
@@ -138,9 +136,8 @@ export default {
   background-color: black;
   border: 0;
   font-size: 1.1em;
-  font-weight: 600;
   margin-top: 5px;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 #checkout-button:disabled {
@@ -156,7 +153,6 @@ export default {
 #empty-message-container {
   text-align: center;
   font-size: 1.1em;
-  font-weight: 600;
 }
 
 #icon-bag-empty {
@@ -180,7 +176,7 @@ export default {
 
   .remove-from-bag-button {
     height: 40px;
-    border-radius: 15px;
+    border-radius: 8px;
     width: auto;
  
     transition: all 0.4s ease 0s;

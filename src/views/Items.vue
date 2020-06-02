@@ -13,7 +13,8 @@
       </div>
     </div>
     <ul id="pagination-list">
-      <li class="pagination-number"
+      <li
+        class="pagination-number"
         v-for="n in pagesCount"
         :key="n"
         v-on:click="goToPage(n)"
@@ -104,10 +105,9 @@ export default {
 .items-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: stretch;
   align-content: flex-start;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin: auto;
   margin-left: 0;
@@ -126,16 +126,18 @@ ul {
   justify-content: center;
 }
 
-.pagination-number{
+ul{
+  padding: 0;
+}
+
+.pagination-number {
   list-style-type: none;
-  display: inline;
-  font-size: 1.4em;
-  font-weight: 600;
-  padding: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
+  display: inline-block;
+  font-size: 1.2em;
   margin-left: 2px;
   margin-right: 2px;
+  padding: 2px 12px;
+  border-radius: 5px !important;
 }
 
 .item {
@@ -151,13 +153,8 @@ ul {
   padding: 10px;
 }
 
-.item:hover {
-  cursor: pointer;
-  box-shadow: 0px 0px 51px -26px rgba(0, 0, 0, 0.75);
-}
-
 .item > img {
-  width: 100%;
+  width: 80%;
 }
 
 .item-title-container {
@@ -169,14 +166,13 @@ ul {
 
 .item-price-container {
   margin: 0;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   background-color: black;
   color: white;
   padding: 10px;
-  font-weight: 600;
   margin-top: 10px;
   text-align: center;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .page-selected {
@@ -187,8 +183,8 @@ ul {
 
 @media (min-width: 40rem) {
   .container {
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 250px;
+    padding-right: 250px;
     margin: auto;
     background-color: transparent;
   }
@@ -199,15 +195,23 @@ ul {
   }
 
   .item {
-    width: 30%;
+    width: 31%;
+  }
+
+  .item:hover {
+    cursor: pointer;
+  }
+
+  .item:hover .item-title-container {
+    cursor: pointer;
+    color: black;
   }
 
   .pagination-number:hover {
-  cursor: pointer;
-
-color: white;
-background-color: black;
-border-radius: 10px;
-}
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+  }
 }
 </style>

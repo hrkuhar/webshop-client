@@ -54,9 +54,13 @@ export default {
 
 html {
   height: 100%;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Anton', sans-serif !important;
   margin: 0;
   font-size: 18px;
+}
+
+button{
+    font-family: 'Anton', sans-serif !important;
 }
 
 body {

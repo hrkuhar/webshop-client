@@ -41,6 +41,7 @@ export default {
     margin: 0;
     z-index: 101;
     max-width: 400px;
+
   }
 
   .shopping-bag-item {
@@ -51,7 +52,7 @@ export default {
   }
 
   .item-image {
-    height: 100px;
+    height: 80px;
     margin-right: 20px;
   }
 

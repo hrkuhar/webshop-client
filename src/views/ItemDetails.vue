@@ -29,6 +29,7 @@ export default {
 <style scoped>
 .item-image {
   width: 100%;
+  padding: 0 10px;
 }
 
 .right-container {
@@ -64,8 +65,7 @@ export default {
   background-color: black;
   border: 0;
   font-size: 1.1em;
-  font-weight: 600;
-  border-radius: 15px;
+  border-radius: 5px;
   padding-left: 20px;
   padding-right: 20px;
   transition: all 0.4s ease 0s;
@@ -87,15 +87,15 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-   padding-left: 220px;
-    padding-right: 220px;
+   padding-left: 250px;
+    padding-right: 250px;
     margin: auto;
     background-color: transparent;
   }
 
   .item-image {
-    width: 55%;
-    padding-right: 20px;
+    width: 35%;
+    padding-right: 30px;
   }
 
   

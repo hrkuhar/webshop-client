@@ -290,7 +290,7 @@ export default {
   height: 35%;
   text-align: center;
   border-radius: 50%;
-  font-size: 0.85em;
+  font-size: 0.65em !important;
   pointer-events: none;
 }
 
@@ -322,7 +322,7 @@ export default {
   }
 
   #shopping-bag-counter {
-    font-size: 1em;
+  font-size: 0.75em !important;
   }
 
   #shopping-bag-counter:hover {

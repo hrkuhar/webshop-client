@@ -236,8 +236,7 @@ label {
   background-color: black;
   color: white;
   padding: 6px;
-  border-radius: 8px;
-  font-weight: 600;
+  border-radius: 5px;
 }
 
 button {
@@ -249,10 +248,9 @@ button {
   background-color: black;
   border: 0;
   font-size: 1.1em;
-  font-weight: 600;
   margin-top: 40px;
   margin-bottom: 10px;
-  border-radius: 15px;
+  border-radius: 5px;
       transition: all 0.4s ease 0s;
 }
 
@@ -302,7 +300,7 @@ button:focus {
   background-color: white;
   padding: 0;
   margin: 0;
-    border-radius: 20px;
+    border-radius: 10px;
 
 }
 
@@ -318,7 +316,7 @@ button:focus {
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
-    border-radius: 20px;
+    border-radius: 10px;
 
 }
 
@@ -330,7 +328,6 @@ button:focus {
 #message-success,
 #message-failure {
   font-size: 1.1em;
-  font-weight: 600;
   text-align: center;
   padding: 0 10px 0 10px;
   margin-top: 10px;
